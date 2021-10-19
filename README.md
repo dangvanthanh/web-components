@@ -1,2 +1,1 @@
-# web-components
-Simple demo using web components
+# Web Components

@@ -1,0 +1,63 @@
+---
+// Component Imports
+import * as react from '../components/ReactExample.jsx';
+import { PreactExample } from '../components/PreactExample.tsx';
+import SolidExample from '../components/SolidExample.tsx';
+import VueExample from '../components/VueExample.vue';
+import SvelteExample from '../components/SvelteExample.svelte';
+import '../components/my-element.js';
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <style>
+        :global(:root) {
+            font-family: system-ui;
+            padding: 2em 0;
+        }
+        :global(.grid) {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            max-width: 60rem;
+            margin: 0 auto;
+        }
+
+        :global(.grid-item) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+        }
+    </style>
+  </head>
+  <body>
+      <main>
+        <div class="grid">
+          <div class="grid-item">
+              <react.Example client:visible></react.Example>
+          </div>
+          <div class="grid-item">
+              <PreactExample client:visible></PreactExample>
+          </div>
+          <div class="grid-item">
+             <SolidExample client:visible></SolidExample>
+          </div>
+          <div class="grid-item">
+            <VueExample client:visible></VueExample>
+          </div>
+          <div class="grid-item">
+            <SvelteExample client:visible></SvelteExample>
+          </div>
+
+           <my-element client:visible />
+        </div>
+      </main>
+  </body>
+</html>
